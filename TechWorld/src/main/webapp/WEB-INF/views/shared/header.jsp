@@ -46,7 +46,7 @@
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#"><span
+					<li><a href="admin"><span
 							class="glyphicon glyphicon-user"></span> <b>Register</b></a></li>
 					<li><a href="#"><span
 							class="glyphicon glyphicon-log-in"></span> <b>Login</b></a></li>

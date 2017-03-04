@@ -55,6 +55,11 @@ body {
 			<c:if test="${products == true}">
 				<%@include file="products.jsp"%>
 			</c:if>
+			
+			<!-- --- When user clicks on Admin --- -->
+			<c:if test="${admin == true}">
+				<%@include file="admin.jsp"%>
+			</c:if>
 
 		</div>
 		<!-- --- Footer --- -->

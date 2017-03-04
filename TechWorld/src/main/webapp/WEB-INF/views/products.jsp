@@ -47,7 +47,7 @@
 			.DataTable(
 					{
 						ajax : {
-							url : '/TechWorld/products/all/pro',
+							url : '/TechWorld/allProducts/data',
 							dataSrc : ''
 						},
 						columns : [
