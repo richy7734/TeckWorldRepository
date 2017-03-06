@@ -23,7 +23,7 @@
 				<div class="col-md-5 col-lg-5">
 					<!-- artigo em destaque -->
 					<div class="featured-article">
-						<a href="#"> <img src="${pro}/${product.imageUrl}.jpg" height="400" width="430" alt="${product.pName}"
+						<a href="#"> <img src="${pro}/${product.pName}.jpg" height="400" width="430" alt="${product.pName}"
 							class="thumb">
 						</a>
 						<div class="block-title">

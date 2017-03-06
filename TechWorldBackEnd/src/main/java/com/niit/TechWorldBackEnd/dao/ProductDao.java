@@ -9,6 +9,7 @@ import com.niit.TechWorldBackEnd.model.Product;
 @Component
 public interface ProductDao {
 
+	public List<Integer> getIdList();
 	public List<Product> getProductList();
 	public Product getProductById(int id);
 	public boolean addProduct(Product product);

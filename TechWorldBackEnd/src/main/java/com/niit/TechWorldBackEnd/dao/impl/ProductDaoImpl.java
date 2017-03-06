@@ -62,5 +62,11 @@ public class ProductDaoImpl implements ProductDao {
 			return false;
 		}
 	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Integer> getIdList(){
+		
+		return sessionFactory.getCurrentSession().createQuery("select pId from Product").list();
+	}
 
 }

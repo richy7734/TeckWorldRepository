@@ -64,7 +64,7 @@
 									data : 'cost'
 								},
 								{
-									data : 'imageUrl',
+									data : 'pName',
 									mRender : function(data, type, full) {
 										return '<img src="${product}/'+data+'.jpg" height="170px" width="190px">';
 									}
@@ -72,7 +72,7 @@
 								{
 									data : 'pId',
 									mRender : function(data, type, full) {
-										return '<a class = "btn btn-danger" href="'+data+'">View</a>';
+										return '<a class = "btn btn-danger" href="product/'+data+'">View</a>';
 									}
 								} ]
 					});

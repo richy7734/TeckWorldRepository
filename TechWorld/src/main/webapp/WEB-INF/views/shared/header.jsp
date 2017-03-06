@@ -9,6 +9,7 @@
 <script type="text/javascript" src="${boot}/js/jquery.min.js"></script>
 <script src="${boot}/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="${boot}/css/bootstrap.min.css">
+<link href="${dt}/css/jquery.dataTables.min.css">
 
 <style type="text/css">
 .navbar-toggle {

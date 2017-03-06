@@ -54,14 +54,14 @@ public class ProductTest {
 	/*
 	 * Test Case for Getting product by id.
 	 */
-	/*
+	
 	@Test
 	public void productByIdTest() {
 		product = new Product();
 		product = productDao.getProductById(2);
 		assertEquals("Product Successfully retrived by id","HP Pavillion x360",product.getpName());
 	}
-	*/
+	
 	
 	/*
 	 * Test Case for updating a product.
@@ -80,7 +80,7 @@ public class ProductTest {
 	/*
 	 * Test Case for deleting a product.
 	 * */
-
+/*
 	@Test
 	public void deleteProductTest() {
 		product = new Product();
@@ -89,7 +89,7 @@ public class ProductTest {
 		
 		assertEquals("Product Successfully deleted from the database", true, productDao.updateProduct(product));
 	}
-
+*/
 
 	
 

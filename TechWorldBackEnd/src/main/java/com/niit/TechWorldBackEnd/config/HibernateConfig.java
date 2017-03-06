@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 @Configuration
 @ComponentScan(basePackages = {"com.niit.TechWorldBackEnd"})
@@ -32,7 +33,7 @@ public class HibernateConfig {
 	 * DataSource Bean
 	 * */
 	@Bean
-	public DataSource gerDataSource(){
+	public DataSource getDataSource(){
 
 		BasicDataSource basicDataSource = new BasicDataSource();
 		
@@ -47,6 +48,9 @@ public class HibernateConfig {
 		return basicDataSource;
 	}
 	
+	/*
+	 * Session Factory Bean
+	 * */
 	@Bean
 	public SessionFactory getSessionFactory(DataSource dataSource){
 		
@@ -82,6 +86,16 @@ public class HibernateConfig {
 		HibernateTransactionManager transactionManager = new HibernateTransactionManager(sessionFactory);
 		
 		return transactionManager;
+	}
+	
+	@Bean (name="multipartResolver")
+	public CommonsMultipartResolver getMultipartResolver(){
+		
+		long maxUploadSize = 1000000;
+		CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
+		multipartResolver.setMaxUploadSize(maxUploadSize);
+		
+		return multipartResolver;
 	}
 
 }

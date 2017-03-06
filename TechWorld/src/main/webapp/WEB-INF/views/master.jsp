@@ -56,6 +56,11 @@ body {
 				<%@include file="products.jsp"%>
 			</c:if>
 			
+			<!-- --- To view Single product --- -->
+			<c:if test="${productDetails == true}">
+				<%@include file="productDetails.jsp"%>
+			</c:if>
+			
 			<!-- --- When user clicks on Admin --- -->
 			<c:if test="${admin == true}">
 				<%@include file="admin.jsp"%>
