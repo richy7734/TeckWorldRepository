@@ -16,6 +16,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 @Configuration
 @ComponentScan(basePackages = {"com.niit.TechWorldBackEnd"})
+@ComponentScan(basePackages = {"com.niit"})
 @EnableTransactionManagement
 public class HibernateConfig {
 	
@@ -32,7 +33,7 @@ public class HibernateConfig {
 	/*
 	 * DataSource Bean
 	 * */
-	@Bean
+	@Bean(name="dataSource")
 	public DataSource getDataSource(){
 
 		BasicDataSource basicDataSource = new BasicDataSource();
@@ -88,6 +89,9 @@ public class HibernateConfig {
 		return transactionManager;
 	}
 	
+	/*
+	 * Multipart Resolver configuration.
+	 * */
 	@Bean (name="multipartResolver")
 	public CommonsMultipartResolver getMultipartResolver(){
 		

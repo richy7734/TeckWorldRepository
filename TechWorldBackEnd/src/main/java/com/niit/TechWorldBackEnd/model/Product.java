@@ -8,7 +8,6 @@ import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.web.multipart.MultipartFile;
 
 @Entity
@@ -24,20 +23,19 @@ public class Product {
 	@NotNull
 	private String brand;
 	
-	@NotBlank
+	@NotNull
 	private String category;
-
+	
+	@NotNull
+	private int qty;
 	
 	private boolean active = true;
 	
-	@NotBlank
+	@NotNull
 	private int cost;
 
 	@NotNull
 	private String description;
-
-	@Transient
-	private String imgUrl;
 
 	@Transient
 	private MultipartFile image;
@@ -106,12 +104,12 @@ public class Product {
 		this.description = description;
 	}
 
-	public String getImgUrl() {
-		return imgUrl;
+	public int getQty() {
+		return qty;
 	}
 
-	public void setImgUrl(String imgUrl) {
-		this.imgUrl = imgUrl;
+	public void setQty(int qty) {
+		this.qty = qty;
 	}
 
 }

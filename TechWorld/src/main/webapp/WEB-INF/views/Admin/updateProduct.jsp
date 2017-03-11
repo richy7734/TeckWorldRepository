@@ -10,7 +10,7 @@
 <title></title>
 </head>
 <body>
-	<form:form action="updateProduct" method="POST"
+	<form:form action="${contextRoot}/adm/updateProduct" method="POST"
 		commandName="updateProductCommand">
 		<%-- <div class="form-group">
 			<form:label path="pId" for="pId"></form:label>
@@ -74,7 +74,7 @@
 		<div class="radio">
 			<label><form:input type="radio" name="optradio"  path="avtive" value  = "FALSE"/>Disable</label>
 		</div> --%>
-		<br/>
+		<br />
 		<div class="form-group">
 			<form:label path="active" for="active">Active</form:label>
 			<form:select path="active" id="active" class="form-control input-sm">
@@ -85,6 +85,14 @@
 			</form:select>
 			<div class="has-error">
 				<form:errors path="active" class="help-inline" />
+			</div>
+		</div>
+		<div class="form-group">
+			<form:label path="image" for="image"></form:label>
+			<form:input path="image" placeholder="Image Upload" id="imgUrl"
+				class="form-control input-sm" width="300px" type="file" />
+			<div class="has-error">
+				<form:errors path="image" class="help-inline" />
 			</div>
 		</div>
 		<input type="submit" class="btn btn-danger" value="submit">

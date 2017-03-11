@@ -11,9 +11,9 @@
 
 <!-- Script for invoking Modal pop-up when update is clicked -->
 <script>
-	$(function(){
+	$(function() {
 		var path = window.location.href;
-		if(path.indexOf('update')>-1){
+		if (path.indexOf('update') > -1) {
 			$('#updateProductModal').modal('show');
 		}
 	});
@@ -26,7 +26,12 @@
 
 	<script type="text/javascript" src="${dt}/js/jquery.dataTables.js"></script>
 	<br />
-	<div class = "container"><a href = "#" class = "btn btn-info" data-toggle = "modal" data-target = "#addProductModal">Add Product</a></div>
+	<div class="container">
+		<a href="#" class="btn btn-info" data-toggle="modal"
+			data-target="#addProductModal">Add Product</a><c:if test="${message != null}"><div class="alert alert-danger">${message}</div>
+		</c:if>	
+	</div>
+
 	<div class="container">
 		<table id="productTable" class="table table-hover">
 			<thead>
@@ -100,7 +105,7 @@
 								{
 									data : 'pId',
 									mRender : function(data, type, full) {
-										return '<a class = "btn btn-danger" href="update/product/'+data+'">Update</a>';
+										return '<a class = "btn btn-danger" href="${contextRoot}/update/product/'+data+'">Update</a>';
 									}
 								} ]
 					});

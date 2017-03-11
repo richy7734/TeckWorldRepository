@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow
+                          http://www.springframework.org/schema/webflow/spring-webflow.xsd">
+	
+	<var name="user" class="com.niit.TechWorldBackEnd.model.User"/>
+	<var name="billingAddress" class="com.niit.TechWorldBackEnd.model.BillingAddress"/>
+		                          
+	<on-start>
+	  <evaluate expression="appHandler.initFlow()" result="flowScope.userModel"/>
+	</on-start>
+	
+	<view-state id="regPage" view="Register/register" model="user">
+		<transition on="regAction" to="addUser"></transition>
+	</view-state>
+
+	<action-state id="addUser">
+		<evaluate expression="appHandler.addUser(user)"/>
+		<transition on="true" to="addressPage" />
+		<transition on="false" to="regPage"/>
+	</action-state>
+
+	<view-state id="addressPage" view="Register/address" model = "billingAddress">
+		<transition on="regBillAddAction" to="regConfirm" />
+	</view-state>
+	
+	<view-state id="regConfirm" view="Register/regConfirm" model = "billingAddress">
+		<transition on="edit" to="addressPage"/>
+		<transition on="confirm" to="addDetails"/>
+	</view-state>
+	
+	<action-state id="addDetails">
+		<evaluate expression="appHandler.addUserAddress(billingAddress,user)"/>
+		<transition on="true" to="login" />
+	</action-state>
+		
+	<view-state id="login" view="login"></view-state>
+		
+		 
+	<end-state id="endState" />
+</flow>

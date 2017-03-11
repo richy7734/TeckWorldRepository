@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <spring:url value="/resources/images/carousel" var="car"></spring:url>
 <spring:url value="/resources/images/products" var="product"></spring:url>
-
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title></title>
 </head>
@@ -49,28 +49,20 @@
 		</div>
 	</div>
 
-	<br/>
-	
+	<br />
+
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-12 col-md-4">
-				<a href="#" class="thumbnail"> <img src="${product}/hp360.jpg"
-					alt="HP 360" height="170px" width="210px">
-				</a>
-			</div>
-			<div class="col-xs-12 col-md-4">
-				<a href="#" class="thumbnail"> <img
-					src="${product}/nvdia1080.jpg" alt="NVIDIA 1080" height="200px"
-					width="210px">
-				</a>
-			</div>
-			<div class="col-xs-12 col-md-4">
-				<a href="#" class="thumbnail"> <img
-					src="${product}/CoolMasterV8.jpg" alt="NVIDIA 1080" height="200px"
-					width="210px">
-				</a>
-			</div>
+			<c:forEach items="${thumb}" var="pro">
+				<div class="col-xs-12 col-md-4">
+					<a href="${contextRoot}/product/${pro.pId}" class="thumbnail">
+						<img src="${product}/${pro.pName}.jpg" alt="" height="170px"
+						width="210px">
+					</a>
+				</div>
+			</c:forEach>
 		</div>
+
 	</div>
 
 </body>

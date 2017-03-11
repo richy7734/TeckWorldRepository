@@ -72,7 +72,7 @@
 								{
 									data : 'pId',
 									mRender : function(data, type, full) {
-										return '<a class = "btn btn-danger" href="product/'+data+'">View</a>';
+										return '<a class = "btn btn-danger" href="${contextRoot}/product/'+data+'">View</a>';
 									}
 								} ]
 					});

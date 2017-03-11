@@ -69,4 +69,11 @@ public class ProductDaoImpl implements ProductDao {
 		return sessionFactory.getCurrentSession().createQuery("select pId from Product").list();
 	}
 
+	/*
+	 * Method to get limited list of products.
+	 * */
+	public List<Product> getProductListFixed() {
+		return sessionFactory.getCurrentSession().createQuery("FROM Product", Product.class).setMaxResults(12).list();
+	}
+
 }

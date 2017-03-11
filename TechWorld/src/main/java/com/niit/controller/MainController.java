@@ -2,31 +2,20 @@ package com.niit.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.niit.TechWorldBackEnd.dao.ProductDao;
-import com.niit.TechWorldBackEnd.model.Product;
 
 @Controller
+@RequestMapping
 public class MainController {
 	
 	@Autowired
 	ProductDao productDao;
 
-	/*
-	 * Default or master page handler mapping
-	 */
-	@RequestMapping({ "/", "/home" })
-	public ModelAndView getDefault() {
-		ModelAndView mv = new ModelAndView("master");
-		mv.addObject("title", "Home");
-		mv.addObject("home", true);
-		return mv;
-	}
+	
 
 	/*
 	 * Mapping for products page

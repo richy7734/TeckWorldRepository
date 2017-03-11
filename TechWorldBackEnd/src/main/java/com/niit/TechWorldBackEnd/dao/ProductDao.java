@@ -11,6 +11,7 @@ public interface ProductDao {
 
 	public List<Integer> getIdList();
 	public List<Product> getProductList();
+	public List<Product> getProductListFixed();
 	public Product getProductById(int id);
 	public boolean addProduct(Product product);
 	public boolean updateProduct(Product product);

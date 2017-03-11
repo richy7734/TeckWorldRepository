@@ -14,7 +14,7 @@
 <title></title>
 </head>
 <body>
-	<form:form action="addProduct" method="POST"
+	<form:form action="${contextRoot}/adm/addProduct" method="POST"
 		commandName="addProductCommand" enctype="multipart/form-data">
 		<div class="form-group">
 			<form:label path="pName" for="pName"></form:label>
@@ -51,19 +51,19 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<form:label path="description" for="description"></form:label>
-			<form:input path="description" placeholder="description"
-				id="description" class="form-control input-sm" width="300px" />
+			<form:label path="qty" for="qty"></form:label>
+			<form:input path="qty" placeholder="Quantity" id="qty"
+				class="form-control input-sm" width="300px" />
 			<div class="has-error">
-				<form:errors path="description" class="help-inline" />
+				<form:errors path="qty" class="help-inline" />
 			</div>
 		</div>
 		<div class="form-group">
-			<form:label path="imgUrl" for="imgUrl"></form:label>
-			<form:input path="imgUrl" placeholder="Image URL" id="imgUrl"
-				class="form-control input-sm" width="300px" />
+			<form:label path="description" for="description"></form:label>
+			<form:textarea rows="4" path="description" placeholder="description"
+				id="description" class="form-control input-sm" width="300px" />
 			<div class="has-error">
-				<form:errors path="imgUrl" class="help-inline" />
+				<form:errors path="description" class="help-inline" />
 			</div>
 		</div>
 		<div class="form-group">
