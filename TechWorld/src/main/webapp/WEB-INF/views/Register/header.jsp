@@ -44,7 +44,6 @@
 				<ul class="nav navbar-nav">
 					<li id="home"><a href="${contextRoot}/home"><b>Home</b></a></li>
 					<li id="products"><a href="${contextRoot}/products"><b>Products</b></a></li>
-					<li><a href="#"><b>Category</b></a></li>
 					<li id="about"><a href="${contextRoot}/aboutUs"><b>About us</b></a></li>
 
 				</ul>

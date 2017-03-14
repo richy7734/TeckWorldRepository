@@ -36,15 +36,20 @@
 		<evaluate expression="checkoutHandler.initCart(userId)" result="cart"/>
 		<transition to = "paymentpage" />
 	</action-state>
+	
 	<view-state id="paymentpage" view="payment" model = "cart">
-		<transition on="pay" to="congo" />
+		<transition on="pay" to="emptyCart" />
 	</view-state>
 	
-	<view-state id="recieptPage" view="reciept" model = "cart">
+	<!-- <view-state id="recieptPage" view="reciept" model = "cart">
 		<transition on="ok" to="congo"/>
 		
 	</view-state>
-	
+	 -->
+	 <action-state id="emptyCart">
+	 	<evaluate expression="checkoutHandler.emptyCart(cart)"/>
+	 	<transition on="true" to="congo" />
+	 </action-state>
 		
 	<view-state id="congo" view="congo">
 		<transition to="endState" />

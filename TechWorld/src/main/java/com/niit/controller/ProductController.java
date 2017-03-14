@@ -45,5 +45,5 @@ public class ProductController {
 	public @ResponseBody List<Product> showAllPoducts() {
 		return productDao.getProductList();
 	}
-
+	
 }

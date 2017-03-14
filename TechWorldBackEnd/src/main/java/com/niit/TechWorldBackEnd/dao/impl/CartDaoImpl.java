@@ -83,6 +83,13 @@ public class CartDaoImpl implements CartDao{
 		sessionFactory.getCurrentSession().delete(cartItem);
 		
 	}
+	
+	/*
+	 * Delete all cart items of a user.
+	 * */
+	public void deleteAllCartItems(int cartId){
+		sessionFactory.getCurrentSession().createQuery("DELETE FROM CartItem WHERE cartId='"+cartId+"'").executeUpdate();
+	}
 
 	@Override
 	public CartItem getSingleCartItem() {

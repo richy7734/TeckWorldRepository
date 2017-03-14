@@ -51,7 +51,7 @@ public class MainController {
 
 		ModelAndView mv = new ModelAndView("master");
 		mv.addObject("title", "About Us");
-		mv.addObject("products", true);
+		mv.addObject("aboutUs", true);
 		return mv;
 	}
 

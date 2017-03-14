@@ -45,7 +45,7 @@
 						</c:forEach>
 					</tbody>
 				</table>
-				<pre>Grand Total : &#8377 ${cartDetails.grandTotal}									<a class = "btn btn-info active" href="${contextRoot}/user/checkoutData">Checkout</a></pre>
+				<pre>Grand Total : <strong>&#8377 ${cartDetails.grandTotal}</strong>									<a class = "btn btn-info active" href="${contextRoot}/user/checkoutData">Checkout</a></pre>
 			</div>
 		</div>
 	</div>

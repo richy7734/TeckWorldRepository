@@ -69,6 +69,7 @@ public class CartController {
 		if (cartItem.getQuantity() != 0) {
 			if (cartItem.getProductId() == product.getpId()) {
 				cartItem = cartDao.getCartItem(product.getpId(), cart.getId());
+				cart.setGrandTotal(cart.getGrandTotal()-cartItem.getTotalPrice());
 				System.out.println("------- Cart item fetched for product : " + product.getpName() + "--------");
 				cartItem.setQuantity(cartItem.getQuantity() + 1);
 				cartItem.setTotalPrice(product.getCost() * cartItem.getQuantity());
@@ -126,7 +127,7 @@ public class CartController {
 		CartItem cartItem = cartDao.getCartItem(pid, cart.getId());
 
 		cart.setCartItemsCount(cart.getCartItemsCount() - 1);
-		cart.setGrandTotal(cart.getGrandTotal() - (cartItem.getTotalPrice() * cartItem.getQuantity()));
+		cart.setGrandTotal(cart.getGrandTotal() - cartItem.getTotalPrice());
 		cartDao.saveCart(cart);
 		cartDao.deleteCartItem(cartItem);
 

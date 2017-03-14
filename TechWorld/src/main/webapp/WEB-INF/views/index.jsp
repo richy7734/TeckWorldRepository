@@ -5,6 +5,20 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
+<style type="text/css">
+.thumbnail {
+	width: 300px; 
+	height: 200px;
+	overflow: auto;
+}
+
+.thumbnail img { 
+	height: 180px;
+	display: block;
+}
+</style>
+
 <spring:url value="/resources/images/carousel" var="car"></spring:url>
 <spring:url value="/resources/images/products" var="product"></spring:url>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -52,18 +66,16 @@
 	<br />
 
 	<div class="container">
-		<div class="row">
-			<c:forEach items="${thumb}" var="pro">
-				<div class="col-xs-12 col-md-4">
-					<a href="${contextRoot}/product/${pro.pId}" class="thumbnail">
-						<img src="${product}/${pro.pName}.jpg" alt="" height="170px"
-						width="210px">
-					</a>
-				</div>
-			</c:forEach>
-		</div>
-
+		<c:forEach items="${thumb}" var="pro">
+			<div class="col-xs-12 col-md-4">
+				<a href="${contextRoot}/product/${pro.pId}" class="thumbnail"> <img
+					src="${product}/${pro.pName}.jpg" alt="${pro.pName}" height="130px"
+					width="200px">
+				</a>
+			</div>
+		</c:forEach>
 	</div>
+
 
 </body>
 </html>

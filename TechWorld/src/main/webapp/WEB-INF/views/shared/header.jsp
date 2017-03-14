@@ -4,6 +4,7 @@
 <%@ taglib prefix="security"
 	uri="http://www.springframework.org/security/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<spring:url value="/resources/DataTables/media" var="dt" />
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -12,8 +13,11 @@
 
 <script type="text/javascript" src="${boot}/js/jquery.min.js"></script>
 <script src="${boot}/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="${dt}/js/jquery.dataTables.js"></script>
+
 <link rel="stylesheet" href="${boot}/css/bootstrap.min.css">
-<link href="${dt}/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="${dt}/css/jquery.dataTables.min.css">
+<link href="${dt}/css/dataTables.bootstrap.min.css">
 
 <style type="text/css">
 .navbar-toggle {
@@ -46,7 +50,7 @@
 				<ul class="nav navbar-nav">
 					<li id="${contextRoot}/home"><a href="home"><b>Home</b></a></li>
 					<li id="${contextRoot}/products"><a href="products"><b>Products</b></a></li>
-					<li><a href="#"><b>Category</b></a></li>
+					<!-- <li><a href="#"><b>Category</b></a></li> -->
 					<li id="${contextRoot}/about"><a href="aboutUs"><b>About
 								us</b></a></li>
 
@@ -54,18 +58,20 @@
 
 				<ul class="nav navbar-nav navbar-right">
 					<security:authorize access="isAuthenticated()">
-						<li id="logout"><a href="logout"><span
+						<li id="logout"><a href="${contextRoot}/logout"><span
 								class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-						<li><a href="${contextRoot}/user/showCart"><span
+					</security:authorize>
+					<security:authorize url="/user">
+					<li><a href="${contextRoot}/user/showCart"><span
 								class="glyphicon glyphicon-shopping-cart"></span> <b>Cart</b></a></li>
 					</security:authorize>
-					<security:authorize access="hasRole(ADMIN)">
+					<security:authorize url="/adm">
 						<li><a href="${contextRoot}/adm/admin"><span
 								class="glyphicon glyphicon-admin"></span> <b>Admin</b></a></li>
 
 					</security:authorize>
 					<security:authorize access="isAnonymous()">
-						<li><a href="register"><span
+						<li><a href="${contextRoot}/register"><span
 								class="glyphicon glyphicon-admin"></span> <b>Register</b></a></li>
 
 						<li><a href="${contextRoot}/login"><span

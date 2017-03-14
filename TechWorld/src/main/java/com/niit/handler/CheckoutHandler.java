@@ -38,6 +38,14 @@ public class CheckoutHandler {
 		
 		return cart;
 	}
+	public String emptyCart(Cart cart){
+		cart.setGrandTotal(0.0);
+		cart.setCartItemsCount(0);
+		cartDao.deleteAllCartItems(cart.getId());
+		cartDao.saveCart(cart);
+		
+		return "true";
+	}
 	
 	
 	public String addShippingAddress(ShippingAddress shippingAddress){
