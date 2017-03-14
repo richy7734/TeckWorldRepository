@@ -10,7 +10,7 @@
 <head>
 <link href="${dt}/css/jquery.dataTables.min.css">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Products</title>
+<title>TechWorld - Products</title>
 </head>
 <body>
 

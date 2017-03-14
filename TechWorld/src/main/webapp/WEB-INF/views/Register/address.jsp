@@ -17,7 +17,7 @@
 	</div>
 	<br />
 	<div class="container">
-		<div class="panel panel-default">
+		<div class="panel panel-default col-sm-6">
 			<div class="panel-heading">Registration</div>
 			<div class="panel-body">
 				<form:form modelAttribute="billingAddress">

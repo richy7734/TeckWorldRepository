@@ -26,7 +26,7 @@
 					</div>
 					<div class="form-group">
 						<label name="password" for="password"></label>
-						<input name="password" placeholder="Password" id="password"
+						<input name="password" type = "password" placeholder="Password" id="password"
 							class="form-control input-sm" width="300px" />
 					</div>
 					<input type="submit"

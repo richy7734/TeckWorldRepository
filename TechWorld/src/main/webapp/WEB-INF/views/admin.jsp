@@ -105,7 +105,7 @@
 								{
 									data : 'pId',
 									mRender : function(data, type, full) {
-										return '<a class = "btn btn-danger" href="${contextRoot}/update/product/'+data+'">Update</a>';
+										return '<a class = "btn btn-danger" href="${contextRoot}/adm/update/product/'+data+'">Update</a>';
 									}
 								} ]
 					});

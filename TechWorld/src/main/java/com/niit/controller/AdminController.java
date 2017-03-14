@@ -131,7 +131,12 @@ public class AdminController {
 	public String updateProducts(@ModelAttribute("updateProductCommand") @Valid Product product, BindingResult result,
 			Model model) {
 
+		System.out.println(product);
+		System.out.println("------- Update Product Controller Initiated -------");
+
 		if (!result.hasErrors()) {
+			System.out.println("------- Update Product Functionality Initiated -------");
+
 			/*
 			 * Image Upload functionality.
 			 * */
@@ -168,8 +173,8 @@ public class AdminController {
 			System.out.println("-------Product Updated-------");
 			model.addAttribute("product", productDao.getProductList());
 			model.addAttribute("category", categoryDao.getCategoryList());
-			model.addAttribute("home", true);
-			model.addAttribute("title", "Home");
+			model.addAttribute("admin", true);
+			model.addAttribute("title", "admin");
 			return "master";
 		} else {
 			System.out.println("-------Product Update Failed-------");

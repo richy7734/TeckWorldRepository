@@ -3,6 +3,7 @@ package com.niit.handler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.niit.TechWorldBackEnd.dao.CartDao;
 import com.niit.TechWorldBackEnd.dao.UserDao;
 import com.niit.TechWorldBackEnd.model.BillingAddress;
 import com.niit.TechWorldBackEnd.model.User;
@@ -14,6 +15,9 @@ public class AppHandler {
 	@Autowired
 	UserDao userDao;
 	
+	@Autowired
+	CartDao cartDao;
+	
 	/*
 	 * Initializing the Entity class for web-flow.
 	 */
@@ -23,10 +27,12 @@ public class AppHandler {
 	}
 
 	/*
-	 * Method to register the user
+	 * Method to register the user and create a new cart for the user.
 	 */
 	public String addUser(User user) {
-		return userDao.addUser(user);
+		userDao.addUser(user);
+		cartDao.createCart(user.getId());
+		return "true";
 	}
 
 	/*

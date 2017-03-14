@@ -17,6 +17,8 @@
 		flow-builder-services="flowBuilderService" base-path="/WEB-INF/views"> 
 		<webflow:flow-location id="register"
 			path="/reg-flow-control.xml" />
+		<webflow:flow-location id="checkout"
+			path="/checkout-control.xml" />
 	</webflow:flow-registry>
 
 	<webflow:flow-builder-services id="flowBuilderService"

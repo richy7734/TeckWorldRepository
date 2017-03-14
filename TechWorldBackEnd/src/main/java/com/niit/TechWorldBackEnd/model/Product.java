@@ -26,7 +26,7 @@ public class Product {
 	@NotNull
 	private String category;
 	
-	@NotNull
+
 	private int qty;
 	
 	private boolean active = true;
@@ -111,5 +111,13 @@ public class Product {
 	public void setQty(int qty) {
 		this.qty = qty;
 	}
+
+	@Override
+	public String toString() {
+		return "Product [pId=" + pId + ", pName=" + pName + ", brand=" + brand + ", category=" + category + ", qty="
+				+ qty + ", active=" + active + ", cost=" + cost + ", description=" + description + "]";
+	}
+	
+	
 
 }

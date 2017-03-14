@@ -29,7 +29,7 @@
 						<div class="block-title">
 							<h2>${product.brand}</h2>
 							<p class="by-author">
-								<a href = "#" class = "btn btn-danger">Add to Cart</a>
+								<a href = "${contextRoot}/user/addToCart/${product.pId}" class = "btn btn-danger">Add to Cart</a>
 							</p>
 						</div>
 					</div>

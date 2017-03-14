@@ -1,18 +1,17 @@
 package com.niit.TechWorldBackEnd.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collection;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Email;
+import org.springframework.stereotype.Component;
 
+@Component
 @Entity
 public class User implements Serializable {
 
@@ -44,10 +43,14 @@ public class User implements Serializable {
 
 	@NotNull
 	private String phone;
-	
-/*	@OneToMany
-	private Collection<BillingAddress> billingAddress = new ArrayList<>();
-*/	
+
+	/*@OneToOne(cascade = CascadeType.ALL, mappedBy = "user", fetch = FetchType.EAGER)
+	private Cart cart;
+*/
+	/*
+	 * @OneToMany private Collection<BillingAddress> billingAddress = new
+	 * ArrayList<>();
+	 */
 	private String role;
 
 	private boolean enabled = true;

@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.TechWorldBackEnd.dao.UserDao;
 import com.niit.TechWorldBackEnd.model.BillingAddress;
+import com.niit.TechWorldBackEnd.model.ShippingAddress;
 import com.niit.TechWorldBackEnd.model.User;
 
 @Repository("userDao")
@@ -35,9 +36,12 @@ public class UserDaoImpl implements UserDao {
 
 	}
 
+	/*
+	 * Method to get user by user ID.
+	 * */
 	public User getUserById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return sessionFactory.getCurrentSession().get(User.class, id);
 	}
 
 	/*
@@ -59,4 +63,24 @@ public class UserDaoImpl implements UserDao {
 		return null;
 	}
 
+	public User getUserByUsername(String username) {
+		
+		return sessionFactory.getCurrentSession().createQuery("FROM User WHERE email = '"+username +"'", User.class).getSingleResult();
+	}
+
+	/*
+	 * Method to get Billing Address.
+	 * */
+	public BillingAddress getBillingAddress(int userId) {
+		
+		return sessionFactory.getCurrentSession().createQuery("FROM BillingAddress WHERE cid ='"+userId+"'", BillingAddress.class).getSingleResult();
+	}
+
+	/*
+	 * Method to add shipping address at time of Checkout
+	 * */
+	public void addShippingAddress(ShippingAddress shippingAddress) {
+		sessionFactory.getCurrentSession().persist(shippingAddress);
+		
+	}
 }

@@ -1,6 +1,7 @@
 package com.niit.TechWorldBackEnd.dao;
 
 import com.niit.TechWorldBackEnd.model.BillingAddress;
+import com.niit.TechWorldBackEnd.model.ShippingAddress;
 import com.niit.TechWorldBackEnd.model.User;
 
 public interface UserDao {
@@ -10,4 +11,7 @@ public interface UserDao {
 	public User getUserById(int id);
 	public String addBillingAddress(BillingAddress billingAddress);
 	public String updateBillingAddress(BillingAddress billingAddress);
+	public User getUserByUsername(String username);
+	public BillingAddress getBillingAddress(int userId);
+	public void addShippingAddress(ShippingAddress shippingAddress);
 }

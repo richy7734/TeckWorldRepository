@@ -11,7 +11,7 @@
 </head>
 <body>
 	<form:form action="${contextRoot}/adm/updateProduct" method="POST"
-		commandName="updateProductCommand">
+		commandName="updateProductCommand" enctype="multipart/form-data">
 		<%-- <div class="form-group">
 			<form:label path="pId" for="pId"></form:label>
 			<form:select path="pId" placeholder="Product ID" id="pId"
@@ -23,6 +23,14 @@
 			</div>
 		</div>
  --%>
+ 		<div class="form-group">
+			<form:label path="pId" for="pId"></form:label>
+			<form:input path="pId" placesholder="" id="pId"
+				value="${pro.pId}" class="form-control input-sm" />
+			<div class="has-error">
+				<form:errors path="pId" class="help-inline" />
+			</div>
+		</div>
 		<div class="form-group">
 			<form:label path="pName" for="pName"></form:label>
 			<form:input path="pName" placesholder="Product Name" id="pName"
@@ -90,7 +98,7 @@
 		<div class="form-group">
 			<form:label path="image" for="image"></form:label>
 			<form:input path="image" placeholder="Image Upload" id="imgUrl"
-				class="form-control input-sm" width="300px" type="file" />
+				class="form-control-file input-sm" width="300px" aria-describedby="fileHelp" type="file" />
 			<div class="has-error">
 				<form:errors path="image" class="help-inline" />
 			</div>

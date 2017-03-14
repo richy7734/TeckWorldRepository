@@ -4,7 +4,6 @@
 <html>
 <head>
 <style type="text/css">
-
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Tech World - Registration Confirm</title>
@@ -12,27 +11,31 @@
 <body>
 	<%@include file="header.jsp"%>
 	<br>
-	<div class = "container">
-		<div class = "alert alert-danger">
-		<strong>Confirm </strong> your address details
+	<div class="container">
+		<div class="alert alert-danger">
+			<strong>Confirm </strong> your address details
 		</div>
 	</div>
 	<br>
 	<div class="row">
 		<div class="col-sm-3"></div>
 		<div class="col-sm-3">
-			<div class="container">
-				<div class="panel panel-primary">
-					<div class="panel-heading">Address</div>
-					<div class="panel-body">
-						<p>${billingAddress.door}- ${billingAddress.street}</p>
-						<p>${billingAddress.city}</p>
-						<p>${billingAddress.state}</p>
-						<p>${billingAddress.code}</p>
-						<br> <a class="btn btn-danger"
-							href="${flowExecutionUrl}&_eventId=edit">Edit</a> <a
-							class="btn btn-primary"
-							href="${flowExecutionUrl}&_eventId=confirm">Confirm</a>
+			<div class="panel panel-primary">
+				<div class="panel-body">
+					<div class="container">
+						<div class="panel panel-primary">
+							<div class="panel-heading">Address</div>
+							<div class="panel-body">
+								<p>${billingAddress.door}-${billingAddress.street}</p>
+								<p>${billingAddress.city}</p>
+								<p>${billingAddress.state}</p>
+								<p>${billingAddress.code}</p>
+								<br> <a class="btn btn-danger"
+									href="${flowExecutionUrl}&_eventId=edit">Edit</a> <a
+									class="btn btn-primary"
+									href="${flowExecutionUrl}&_eventId=confirm">Confirm</a>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

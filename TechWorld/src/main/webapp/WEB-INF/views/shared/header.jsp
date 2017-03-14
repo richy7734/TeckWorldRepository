@@ -16,7 +16,7 @@
 <link href="${dt}/css/jquery.dataTables.min.css">
 
 <style type="text/css">
-.navbar-toggle { 
+.navbar-toggle {
 	color: white;
 }
 </style>
@@ -56,16 +56,19 @@
 					<security:authorize access="isAuthenticated()">
 						<li id="logout"><a href="logout"><span
 								class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-						<li><a href="#"><span
+						<li><a href="${contextRoot}/user/showCart"><span
 								class="glyphicon glyphicon-shopping-cart"></span> <b>Cart</b></a></li>
+					</security:authorize>
+					<security:authorize access="hasRole(ADMIN)">
+						<li><a href="${contextRoot}/adm/admin"><span
+								class="glyphicon glyphicon-admin"></span> <b>Admin</b></a></li>
+
 					</security:authorize>
 					<security:authorize access="isAnonymous()">
 						<li><a href="register"><span
 								class="glyphicon glyphicon-admin"></span> <b>Register</b></a></li>
-						<li><a href="${contextRoot}/adm/admin"><span
-								class="glyphicon glyphicon-admin"></span> <b>Admin</b></a></li>
 
-						<li><a href="login"><span
+						<li><a href="${contextRoot}/login"><span
 								class="glyphicon glyphicon-log-in"></span> <b>Login</b></a></li>
 					</security:authorize>
 				</ul>

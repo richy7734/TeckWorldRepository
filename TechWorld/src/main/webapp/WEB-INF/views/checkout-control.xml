@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow
+                          http://www.springframework.org/schema/webflow/spring-webflow.xsd">
+	
+	<var name="billingAddress" class="com.niit.TechWorldBackEnd.model.BillingAddress"/>
+	<var name="shippingAddress" class="com.niit.TechWorldBackEnd.model.ShippingAddress"/>
+	<var name="user" class="com.niit.TechWorldBackEnd.model.User"/>
+	<var name="orders" class="com.niit.TechWorldBackEnd.model.Orders"/>
+	
+	<var name = "cart" class = "com.niit.TechWorldBackEnd.model.Cart"/>
+	<input name="userId"/>
+	<on-start>
+	  <evaluate expression="checkoutHandler.initBillingAddress(userId)" result="billingAddress"/>
+	</on-start>
+	
+	<view-state id="selectAddress" view="Register/selectAddress" model="billingAddress">
+		<transition on="selectAddress" to="paymentGateway"></transition>
+		<transition on="newAddress" to="shippingAddress"></transition>
+	</view-state>
+
+	<view-state id="shippingAddress" view="Register/shippingAddress" model="shippingAddress">
+		<transition on="addShippingAddress" to="addAddress"></transition>
+		<transition on="back" to="selectAddress"></transition>
+	</view-state>
+
+
+	<action-state id="addAddress">
+		<evaluate expression="checkoutHandler.addShippingAddress(billingAddress,userId)"/>
+		<transition on="true" to="paymentGateway" />
+		<transition on="false" to="newAddress"/>
+	</action-state>
+
+	<action-state id="paymentGateway">
+		<evaluate expression="checkoutHandler.initCart(userId)" result="cart"/>
+		<transition to = "paymentpage" />
+	</action-state>
+	<view-state id="paymentpage" view="payment" model = "cart">
+		<transition on="pay" to="congo" />
+	</view-state>
+	
+	<view-state id="recieptPage" view="reciept" model = "cart">
+		<transition on="ok" to="congo"/>
+		
+	</view-state>
+	
+		
+	<view-state id="congo" view="congo">
+		<transition to="endState" />
+	</view-state>
+			 
+	<end-state id="endState" />
+</flow>
