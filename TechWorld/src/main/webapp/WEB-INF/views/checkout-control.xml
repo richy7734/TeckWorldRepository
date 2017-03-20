@@ -17,17 +17,17 @@
 	
 	<view-state id="selectAddress" view="Register/selectAddress" model="billingAddress">
 		<transition on="selectAddress" to="paymentGateway"></transition>
-		<transition on="newAddress" to="shippingAddress"></transition>
+		<transition on="newAddress" to="shipAddress"></transition>
 	</view-state>
 
-	<view-state id="shippingAddress" view="Register/shippingAddress" model="shippingAddress">
-		<transition on="addShippingAddress" to="addAddress"></transition>
+	<view-state id="shipAddress" view="Register/shippingAddress" model="shippingAddress">
+		<transition on="regShippingAddAction" to="addAddress"></transition>
 		<transition on="back" to="selectAddress"></transition>
 	</view-state>
 
 
 	<action-state id="addAddress">
-		<evaluate expression="checkoutHandler.addShippingAddress(billingAddress,userId)"/>
+		<evaluate expression="checkoutHandler.addShippingAddress(shippingAddress,userId)"/>
 		<transition on="true" to="paymentGateway" />
 		<transition on="false" to="newAddress"/>
 	</action-state>

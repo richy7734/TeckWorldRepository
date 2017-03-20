@@ -61,7 +61,10 @@
 									data : 'description'
 								},
 								{
-									data : 'cost'
+									data : 'cost',
+									mRender : function(data, type, full) {
+										return '<p>&#8377  '+data+'</p>';
+									}
 								},
 								{
 									data : 'pName',

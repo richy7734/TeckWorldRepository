@@ -48,8 +48,8 @@ public class CheckoutHandler {
 	}
 	
 	
-	public String addShippingAddress(ShippingAddress shippingAddress){
-		shippingAddress.setCid(user.getId());
+	public String addShippingAddress(ShippingAddress shippingAddress,int userId){
+		shippingAddress.setCid(userId);
 		userDao.addShippingAddress(shippingAddress);
 		return "true";
 	}

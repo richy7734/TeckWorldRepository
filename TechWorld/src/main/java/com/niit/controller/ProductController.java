@@ -20,27 +20,6 @@ public class ProductController {
 	@Autowired
 	ProductDao productDao;
 
-	/*
-	 * Default or master page handler mapping
-	 */
-	@RequestMapping({ "/", "/home" })
-	public ModelAndView getDefault() {
-		ModelAndView mv = new ModelAndView("master");
-		mv.addObject("thumb", productDao.getProductListFixed());
-		mv.addObject("title", "Home");
-		mv.addObject("home", true);
-		return mv;
-	}
-
-	@GetMapping("/login")
-	public String login(@RequestParam(value = "error", required = false) String error, Model model) {
-		if (error != null) {
-			model.addAttribute("error", "Authentication Failed - Invalid credentials!");
-		}
-		model.addAttribute("title", "Login");
-		return "login";
-	}
-
 	@RequestMapping("/allProducts/data")
 	public @ResponseBody List<Product> showAllPoducts() {
 		return productDao.getProductList();

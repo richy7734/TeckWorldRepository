@@ -6,10 +6,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Email;
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
 @Component
 @Entity
@@ -44,9 +46,13 @@ public class User implements Serializable {
 	@NotNull
 	private String phone;
 
-	/*@OneToOne(cascade = CascadeType.ALL, mappedBy = "user", fetch = FetchType.EAGER)
-	private Cart cart;
-*/
+	@Transient
+	private MultipartFile profileImage;
+
+	/*
+	 * @OneToOne(cascade = CascadeType.ALL, mappedBy = "user", fetch =
+	 * FetchType.EAGER) private Cart cart;
+	 */
 	/*
 	 * @OneToMany private Collection<BillingAddress> billingAddress = new
 	 * ArrayList<>();
@@ -119,5 +125,12 @@ public class User implements Serializable {
 		this.phone = phone;
 	}
 
+	public MultipartFile getProfileImage() {
+		return profileImage;
+	}
+
+	public void setProfileImage(MultipartFile profileImage) {
+		this.profileImage = profileImage;
+	}
 
 }

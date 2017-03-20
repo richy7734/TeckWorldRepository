@@ -71,6 +71,11 @@ body {
 				<%@include file="aboutUs.jsp"%>
 			</c:if>
 			
+			<!-- --- When user clicks on User profile --- -->
+			<c:if test="${ userProfile == true}">
+				<%@include file="./User/userProfile.jsp"%>
+			</c:if>
+			
 
 		</div>
 		<!-- --- Footer --- -->

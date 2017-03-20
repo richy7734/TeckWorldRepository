@@ -161,12 +161,8 @@ public class AdminController {
 					System.out.println("You failed to upload " + product.getpName() + " => " + e.getMessage());
 				}
 			} else {
-				System.out.println("------- Upload Failed -------");
-				model.addAttribute("product", productDao.getProductList());
-				model.addAttribute("category", categoryDao.getCategoryList());
-				model.addAttribute("title", "admin");
-				model.addAttribute("admin", true);
-				return "master";
+				System.out.println("------- No image selected to update. -------");
+				
 			}
 
 			productDao.updateProduct(product);

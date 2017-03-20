@@ -48,12 +48,10 @@
 			</div>
 			<div class="collapse navbar-collapse" id="navBar">
 				<ul class="nav navbar-nav">
-					<li id="${contextRoot}/home"><a href="home"><b>Home</b></a></li>
-					<li id="${contextRoot}/products"><a href="products"><b>Products</b></a></li>
+					<li id="home"><a href="${contextRoot}/home"><b>Home</b></a></li>
+					<li id="products"><a href="${contextRoot}/products"><b>Products</b></a></li>
 					<!-- <li><a href="#"><b>Category</b></a></li> -->
-					<li id="${contextRoot}/about"><a href="aboutUs"><b>About
-								us</b></a></li>
-
+					<li id="about"><a href="${contextRoot}/aboutUs"><b>About us</b></a></li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
